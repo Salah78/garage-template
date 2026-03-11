@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export function Atelier() {
   return (
@@ -16,8 +17,13 @@ export function Atelier() {
                 transition={{ duration: 0.5 }}
                 className="h-[300px] md:h-[400px] rounded-2xl overflow-hidden relative mt-12 bg-background border border-border flex items-center justify-center"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
-                <span className="text-muted text-sm px-4 text-center">Visuel: Outils de précision alignés</span>
+                <Image 
+                  src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800" 
+                  alt="Outils de précision alignés" 
+                  fill
+                  className="object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent mix-blend-overlay" />
               </motion.div>
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -26,8 +32,13 @@ export function Atelier() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="h-[300px] md:h-[400px] rounded-2xl overflow-hidden relative bg-background border border-border flex items-center justify-center"
               >
-                <div className="absolute inset-0 bg-gradient-to-tl from-primary/5 to-transparent" />
-                <span className="text-muted text-sm px-4 text-center">Visuel: Mécanicien concentré sous un capot bien éclairé</span>
+                <Image 
+                  src="https://images.unsplash.com/photo-1632823462949-0639e44d32a0?auto=format&fit=crop&q=80&w=800" 
+                  alt="Mécanicien concentré" 
+                  fill
+                  className="object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tl from-primary/20 to-transparent mix-blend-overlay" />
               </motion.div>
             </div>
             {/* Decorative element */}

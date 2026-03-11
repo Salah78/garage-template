@@ -3,14 +3,22 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/Button"
 import { ArrowRight, ChevronDown } from "lucide-react"
+import Image from "next/image"
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Background with abstract dark/metallic vibe */}
+      {/* Background with image and dark/metallic vibe */}
       <div className="absolute inset-0 z-0 bg-background">
+        <Image 
+          src="https://images.unsplash.com/photo-1611016186353-9af58c69a533?auto=format&fit=crop&q=80&w=2000"
+          alt="Atelier automobile premium"
+          fill
+          className="object-cover opacity-20"
+          priority
+        />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(234,88,12,0.05),_transparent_60%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,_transparent_0%,_#09090b_100%)] opacity-80" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,_transparent_0%,_#09090b_100%)] opacity-90" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
