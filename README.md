@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Exigence Auto — Template Vitrine Automobile Premium
 
-## Getting Started
+**Exigence Auto** est une expérience digitale haut de gamme conçue pour un garage de réparation et d'entretien automobile. Ce projet s'éloigne des standards classiques pour proposer une interface moderne, rassurante et axée sur la précision technique.
 
-First, run the development server:
+## 🏁 Concept Créatif
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+L'identité visuelle repose sur le concept de **"Précision Mécanique"**. L'objectif est de transformer l'image du garage traditionnel en un lieu d'excellence technique, propre et structuré, inspiré des paddocks de course et de l'ingénierie de pointe.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Palette de Couleurs** : Fond Noir Profond & Gris Graphite, contrasté par un Orange Brûlé (Cuivre) pour souligner la maîtrise et la technicité.
+- **Typographie** : Duo percutant de `Outfit` (Headings) et `Inter` (Body) pour un aspect à la fois imposant et clinique.
+- **Expérience** : Animations fluides avec Framer Motion pour rythmer la lecture et renforcer l'aspect "qualité de service".
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Stack Technique
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework** : [Next.js 16 (App Router)](https://nextjs.org/)
+- **Langage** : TypeScript
+- **Styling** : [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations** : [Framer Motion](https://www.framer.com/motion/)
+- **Icônes** : Lucide React
 
-## Learn More
+## 📂 Architecture du Projet
 
-To learn more about Next.js, take a look at the following resources:
+- `src/sections/` : Composants de page complets (Hero, Services, Atelier, Process, etc.).
+- `src/components/` : Composants UI réutilisables (Boutons, Navbar, Footer).
+- `src/app/` : Configuration globale, layout et routage.
+- `src/lib/` : Utilitaires et fonctions partagées.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Cloner le projet :
+   ```bash
+   git clone https://github.com/Salah78/garage-template.git
+   ```
 
-## Deploy on Vercel
+2. Installer les dépendances :
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Lancer le serveur de développement :
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Builder pour la production :
+   ```bash
+   npm run build
+   ```
+
+## ✒️ Copywriting & UX
+
+Chaque phrase a été écrite pour rassurer le client et valoriser l'expertise locale. Le parcours utilisateur est optimisé pour la conversion (prise de rendez-vous et appel direct).
+
+---
+
+*Développé avec exigence.*
