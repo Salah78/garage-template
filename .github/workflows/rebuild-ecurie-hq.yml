@@ -1,0 +1,48 @@
+name: Rebuild Ecurie HQ images
+
+on:
+  push:
+    branches: [ecurie-hq-rebuild-v8]
+    paths:
+      - 'hq-v8/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ecurie-hq-rebuild-v8
+          fetch-depth: 0
+      - name: Reconstruct and verify WebP files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64, hashlib, json
+          root = Path('hq-v8')
+          manifest = json.loads((root / 'manifest.json').read_text())
+          output = Path('ecurie-v8-hq')
+          output.mkdir(exist_ok=True)
+          for name, expected in manifest.items():
+              parts = sorted((root / 'chunks' / name).glob('*.txt'))
+              if len(parts) != expected['chunks']:
+                  raise SystemExit(f"{name}: {len(parts)} chunks au lieu de {expected['chunks']}")
+              encoded = ''.join(p.read_text().strip() for p in parts)
+              data = base64.b64decode(encoded, validate=True)
+              digest = hashlib.sha256(data).hexdigest()
+              if len(data) != expected['bytes'] or digest != expected['sha256']:
+                  raise SystemExit(f"{name}: vérification échouée")
+              (output / f'{name}.webp').write_bytes(data)
+              print(name, len(data), digest)
+          PY
+      - name: Commit reconstructed binaries
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ecurie-v8-hq/*.webp
+          git diff --cached --quiet && exit 0
+          git commit -m 'fix: reconstruct high-quality equestrian images'
+          git push origin HEAD:ecurie-hq-rebuild-v8
